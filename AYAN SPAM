@@ -29,7 +29,7 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ----------------------------------------------------------------
 task.spawn(function()
     task.wait(1)
-    local execMsg = "✌🏻 😝 AYAN SPAM ACTIVATED ⚠️ MADE BY AYAN 😎 🏴(ZM ON TOP) 🔥"
+    local execMsg = "✌🏻 ☠️ AYAN SPAM ACTIVATED ⚠️ MADE BY AYAN 😎 🏴(ZM ON TOP) 🔥"
     local border = "(!)(!)(!)(!)(!)(!)(!)(!)(!)(!)(!)(!)(!)(!)"
     local fullExecMessage = border .. "\n" .. execMsg .. "\n" .. border
 
@@ -76,14 +76,14 @@ IntroText.Parent = IntroFrame
 -- Pop-up Roblox Notification
 task.spawn(function()
     StarterGui:SetCore("SendNotification", {
-        Title = "MONK 🦁",
-        Text = "🥶 I WILL BE FIGHTING FOR U DON'T WORRY MY FRIEND ✨",
+        Title = "AYAN 😎",
+        Text = "🥶 AYAN BHAI AGYE HANN☠️ CHALO BETA PAPA AGYE ✨",
         Duration = 5
     })
 end)
 
 ----------------------------------------------------------------
--- 2. FLOATING BUTTON (👑) - DRAGGABLE
+-- 2. FLOATING BUTTON (☠️) - DRAGGABLE
 ----------------------------------------------------------------
 local FlowerBtn = Instance.new("TextButton")
 FlowerBtn.Size = UDim2.new(0, 60, 0, 60)
@@ -135,7 +135,7 @@ local TitleLabel = Instance.new("TextLabel")
 TitleLabel.Size = UDim2.new(1, 0, 0, 35)
 TitleLabel.BackgroundColor3 = Color3.fromRGB(25, 10, 15)
 TitleLabel.Font = Enum.Font.GothamBold
-TitleLabel.Text = " 🔥 MONK EDITION SPAMMER 😝 "
+TitleLabel.Text = " 🔥 AYAN SUPER SPAMMER 😝 "
 TitleLabel.TextColor3 = Color3.fromRGB(255, 150, 150)
 TitleLabel.TextSize = 14
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Center
@@ -173,7 +173,7 @@ local OwnerText = Instance.new("TextLabel")
 OwnerText.Size = UDim2.new(1, 0, 1, 0)
 OwnerText.BackgroundTransparency = 1
 OwnerText.Font = Enum.Font.GothamBold
-OwnerText.Text = "👑 OWNER : MONK 🦁🔥✌🏻 | 🥶 ALWAYS READY TO FIGHT"
+OwnerText.Text = "👑 OWNER : AYAM 😎🏴✌🏻 | 🥶 ALWAYS READY TO FIGHT"
 OwnerText.TextColor3 = Color3.fromRGB(255, 100, 100)
 OwnerText.TextSize = 12
 OwnerText.TextXAlignment = Enum.TextXAlignment.Center
@@ -452,7 +452,7 @@ local patterns = {
     "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 }
 
-local toxicMsg = "🔮☄️ tmx MAI TOXIC KA MONK😝TAP KARKE BOL TOXIC PAPA OP✌🏻 🔮☄️"
+local toxicMsg = "🔮☄️ tmx MAI TOXIC KA AYAN😝TAP KARKE BOL AYAN PAPA OP✌🏻 🔮☄️"
 
 local messages = {
     toxicMsg, 
