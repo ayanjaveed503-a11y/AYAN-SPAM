@@ -141,7 +141,7 @@ SidePanel.Name = "AyanSidePanel"
 SidePanel.Parent = MainFrame
 SidePanel.BackgroundColor3 = Color3.fromRGB(14, 14, 22)
 SidePanel.BackgroundTransparency = 0.4
-SidePanel.Position = UDim2.new(1, 10, 0, 155) -- Positioned below Player panel
+SidePanel.Position = UDim2.new(1, 10, 0, 155)
 SidePanel.Size = UDim2.new(0, 240, 0, 385)
 SidePanel.Visible = true
 
@@ -197,7 +197,7 @@ CmdListLayout.Parent = CmdScroll
 CmdListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 CmdListLayout.Padding = UDim.new(0, 5)
 
--- Neon Spectrum Gradient Loop
+-- Neon Gradient Loop
 task.spawn(function()
     local hue = 0
     while task.wait(0.03) do
@@ -211,12 +211,10 @@ task.spawn(function()
     end
 end)
 
--- Safe CoreGui Integration Engine
 if syn and syn.protect_gui then syn.protect_gui(ScreenGui)
 elseif getgenv and getgenv().protect_gui then getgenv().protect_gui(ScreenGui) end
 ScreenGui.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
--- Float Anchor Activation Button
 ToggleCircle.Parent = ScreenGui
 ToggleCircle.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
 ToggleCircle.Position = UDim2.new(0, 15, 0.4, 0)
@@ -235,7 +233,6 @@ ToggleCircle.MouseButton1Click:Connect(function()
     MainFrame.Visible = not MainFrame.Visible
 end)
 
--- Title Element
 Title.Name = "HeaderTitle"
 Title.Parent = MainFrame
 Title.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
@@ -247,7 +244,6 @@ Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 13
 local Tc = Instance.new("UICorner") Tc.CornerRadius = UDim.new(0, 16) Tc.Parent = Title
 
--- Side Panel Toggle Configuration Layout
 SideToggleBtn.Parent = MainFrame
 SideToggleBtn.BackgroundColor3 = Color3.fromRGB(40, 45, 60)
 SideToggleBtn.Position = UDim2.new(1, -125, 0, 5)
@@ -259,12 +255,13 @@ SideToggleBtn.TextSize = 11
 SideToggleBtn.ZIndex = 5
 local Stc = Instance.new("UICorner") Stc.CornerRadius = UDim.new(0, 6) Stc.Parent = SideToggleBtn
 
-Use code with caution.
 SideToggleBtn.MouseButton1Click:Connect(function()
-SidePanel.Visible = not SidePanel.Visible
-PlayerPanel.Visible = not PlayerPanel.Visible
+    SidePanel.Visible = not SidePanel.Visible
+    PlayerPanel.Visible = not PlayerPanel.Visible
 end)
+
 TargetsScrollingFrame.Parent = MainFrame
+Use code with caution.
 TargetsScrollingFrame.BackgroundTransparency = 1
 TargetsScrollingFrame.Position = UDim2.new(0, 15, 0, 42)
 TargetsScrollingFrame.Size = UDim2.new(1, -30, 0, 95)
@@ -320,7 +317,6 @@ task.wait(0.05)
 TargetsScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, TargetsListLayout.AbsoluteContentSize.Y)
 end)
 end
--- Dialog Config Modules
 DialogFrame.Parent = MainFrame
 DialogFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
 DialogFrame.Position = UDim2.new(0, 15, 0, 142)
@@ -533,13 +529,12 @@ player.CharacterAdded:Connect(setupCharacterCollision)
 if player.Character then setupCharacterCollision(player.Character) end
 end
 for _, player in ipairs(Players:GetPlayers()) do trackPlayer(player) end
-orgAdded = Players.PlayerAdded:Connect(trackPlayer)
+local orgAdded = Players.PlayerAdded:Connect(trackPlayer)
 AntiFlingToggleBtn.MouseButton1Click:Connect(function()
 antiFlingActive = not antiFlingActive
 AntiFlingToggleBtn.BackgroundColor3 = antiFlingActive and Color3.fromRGB(35, 150, 80) or Color3.fromRGB(180, 50, 50)
 AntiFlingToggleBtn.Text = antiFlingActive and "🛡️ ANTI-FLING: ON" or "🛡️ ANTI-FLING: OFF"
 end)
-
 -- ==========================================
 -- 🛠️ PREMIUM TARGET POSITION FIX IMPLEMENTATION 🛠️
 -- ==========================================
@@ -555,14 +550,12 @@ local targetPlr = Players:FindFirstChild(ActiveSideTarget)
 if targetPlr and targetPlr.Character and targetPlr.Character:FindFirstChild("HumanoidRootPart") then return targetPlr.Character, targetPlr end
 return nil
 end
--- FIXED MECHANICS FOR MOUTH & BACK ATTACHMENT
 local function InitTargetLockLoop(cframeOffset)
 ClearActiveLoops()
 CurrentLoopRoutine = task.spawn(function()
 while task.wait() do
 local char = GetTargetCharacter()
 if char and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
--- Direct structural mapping to the target's relative space
 p.Character.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame * cframeOffset
 end
 end
@@ -582,6 +575,7 @@ end
 end
 end)
 end
+
 local function ApplyEspHighlight()
 local char = GetTargetCharacter()
 if char then
@@ -594,7 +588,6 @@ hl.Parent = char
 end
 end
 local CommandsList = {
--- Bang: Moves behind slightly and pushes forward
 {name = "💥 Bang", action = function()
 ClearActiveLoops()
 CurrentLoopRoutine = task.spawn(function()
@@ -609,10 +602,8 @@ end
 end
 end)
 end},
--- Mouthbang: Fixed to perfectly match the target's front mouth layout space
 {name = "👄 Mouthbang", action = function() InitTargetLockLoop(CFrame.new(0, 0.3, -1.1) * CFrame.Angles(0, math.rad(180), 0)) end},
 {name = "🧑‍🦼 Headsit", action = function() InitTargetLockLoop(CFrame.new(0, 2.6, 0)) end},
--- Backsit: Fixed to stick directly tightly on the back structure safely
 {name = "🧘 Backsit", action = function() InitTargetLockLoop(CFrame.new(0, 0.4, 1.1)) end},
 {name = "🌀 Orbit", action = TriggerOrbitMode},
 {name = "👁️ View", action = function()
