@@ -253,11 +253,16 @@ SideToggleBtn.Text = "🔄 Toggle Side Panel"
 SideToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 SideToggleBtn.TextSize = 11
 SideToggleBtn.ZIndex = 5
-local Stc = Instance.new("UICorner") Stc.CornerRadius = UDim.new(0, 6) Stc.Parent = SideToggleBtn
+
+local Stc = Instance.new("UICorner")
+Stc.CornerRadius = UDim.new(0, 6)
+Stc.Parent = SideToggleBtn
 
 SideToggleBtn.MouseButton1Click:Connect(function()
-    SidePanel.Visible = not SidePanel.Visible
-    PlayerPanel.Visible = not PlayerPanel.Visible
+    if SidePanel and PlayerPanel then
+        SidePanel.Visible = not SidePanel.Visible
+        PlayerPanel.Visible = not PlayerPanel.Visible
+    end
 end)
 
 TargetsScrollingFrame.Parent = MainFrame
